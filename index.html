@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌹 Almas de Pombagira | Alexia Rosa de Fogo 🔥</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-fire: #ff1a1a;
+            --gold: #ffd700;
+            --deep-red: #8b0000;
+            --black: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #fff;
+        }
+
+        .cinzel {
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+        /* Particles Container */
+        #particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            animation: float-up 8s ease-in infinite;
+        }
+
+        .ember {
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #ff6600, #ff0000);
+            border-radius: 50%;
+            box-shadow: 0 0 10px #ff3300, 0 0 20px #ff0000;
+        }
+
+        .rose-petal {
+            width: 15px;
+            height: 15px;
+            background: linear-gradient(135deg, #ff1a1a, #8b0000);
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.7;
+            transform: rotate(45deg);
+        }
+
+        @keyframes float-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(0deg) scale(0);
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) rotate(720deg) scale(0.5);
+            }
+        }
+
+        /* Glowing Border Effect */
+        .glow-border {
+            position: relative;
+            background: linear-gradient(145deg, rgba(139, 0, 0, 0.3), rgba(10, 10, 10, 0.9));
+            border: 1px solid rgba(255, 26, 26, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff1a1a, #ffd700, #ff1a1a, #8b0000);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            filter: blur(8px);
+        }
+
+        .glow-border:hover::before {
+            opacity: 1;
+            animation: border-glow 2s linear infinite;
+        }
+
+        @keyframes border-glow {
+            0%, 100% { filter: blur(8px) hue-rotate(0deg); }
+            50% { filter: blur(12px) hue-rotate(20deg); }
+        }
+
+        /* Fire Text Effect */
+        .fire-text {
+            background: linear-gradient(180deg, #fff 0%, #ffd700 30%, #ff6600 60%, #ff1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fire-flicker 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 40px rgba(255, 100, 0, 0.5);
+        }
+
+        @keyframes fire-flicker {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 20px #ff3300); }
+            50% { filter: brightness(1.2) drop-shadow(0 0 30px #ff6600); }
+        }
+
+        /* Mystical Glow */
+        .mystical-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 26, 26, 0.4), 
+                            0 0 40px rgba(255, 215, 0, 0.2),
+                            inset 0 0 20px rgba(255, 26, 26, 0.1);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(255, 26, 26, 0.6), 
+                            0 0 60px rgba(255, 215, 0, 0.3),
+                            inset 0 0 30px rgba(255, 26, 26, 0.2);
+            }
+        }
+
+        /* Link Cards */
+        .link-card {
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        /* Smoke Effect */
+        .smoke {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 100%;
+            height: 300px;
+            background: radial-gradient(ellipse at center bottom, rgba(139, 0, 0, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+            animation: smoke-rise 5s ease-in-out infinite;
+        }
+
+        @keyframes smoke-rise {
+            0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleY(1); }
+            50% { opacity: 0.8; transform: translateX(-50%) scaleY(1.2); }
+        }
+
+        /* Profile Image */
+        .profile-container {
+            position: relative;
+        }
+
+        .profile-ring {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff1a1a, #ffd700, #ff1a1a) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: rotate-ring 10s linear infinite;
+        }
+
+        @keyframes rotate-ring {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Icon Hover Effects */
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            filter: drop-shadow(0 0 15px currentColor);
+            transform: scale(1.2);
+        }
+
+        /* Decorative Elements */
+        .trident {
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: reveal 0.8s ease forwards;
+        }
+
+        @keyframes reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        .delay-7 { animation-delay: 0.7s; }
+
+        /* Pentagram decoration */
+        .pentagram {
+            position: fixed;
+            opacity: 0.03;
+            pointer-events: none;
+            animation: slow-rotate 60s linear infinite;
+        }
+
+        @keyframes slow-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Background Decorations -->
+    <div class="pentagram" style="width: 600px; height: 600px; top: -100px; left: -200px;">
+        <svg viewBox="0 0 100 100" fill="none" stroke="#ffd700" stroke-width="0.5">
+            <polygon points="50,5 61,40 97,40 68,62 79,97 50,75 21,97 32,62 3,40 39,40"/>
+            <circle cx="50" cy="50" r="45"/>
+        </svg>
+    </div>
+    <div class="pentagram" style="width: 400px; height: 400px; bottom: -50px; right: -100px; animation-direction: reverse;">
+        <svg viewBox="0 0 100 100" fill="none" stroke="#ff1a1a" stroke-width="0.5">
+            <polygon points="50,5 61,40 97,40 68,62 79,97 50,75 21,97 32,62 3,40 39,40"/>
+            <circle cx="50" cy="50" r="45"/>
+        </svg>
+    </div>
+
+    <!-- Particles -->
+    <div id="particles-container"></div>
+
+    <!-- Smoke Effect -->
+    <div class="smoke"></div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 py-12">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-10 reveal">
+            <!-- Profile Image -->
+            <div class="profile-container w-36 h-36 mx-auto mb-6">
+                <div class="profile-ring"></div>
+                <div class="w-36 h-36 rounded-full overflow-hidden mystical-glow bg-gradient-to-br from-red-900 to-black flex items-center justify-center">
+                    <span class="text-6xl">🌹</span>
+                </div>
+            </div>
+
+            <!-- Name -->
+            <h1 class="cinzel text-4xl md:text-5xl font-bold fire-text mb-2">
+                Alexia Rosa de Fogo
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-xl md:text-2xl text-red-400 italic mb-4">
+                ✧ Almas de Pombagira ✧
+            </p>
+
+            <!-- Description -->
+            <p class="text-gray-400 max-w-md mx-auto text-lg leading-relaxed">
+                🔥 Conteúdo espiritual • Sabedoria ancestral • Axé 🔥
+            </p>
+        </header>
+
+        <!-- Social Links -->
+        <main class="w-full max-w-md space-y-4 mb-12">
+            
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@almasdepombagira" target="_blank" 
+               class="link-card glow-border block w-full p-4 rounded-xl reveal delay-1">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-red-600/30 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-red-500 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="cinzel text-lg font-semibold text-white">YouTube</h3>
+                        <p class="text-gray-400 text-sm">@almasdepombagira</p>
+                    </div>
+                    <span class="text-red-500">→</span>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/almasdepombagira/" target="_blank" 
+               class="link-card glow-border block w-full p-4 rounded-xl reveal delay-2">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-600/30 via-pink-500/30 to-orange-400/30 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-pink-400 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="cinzel text-lg font-semibold text-white">Instagram</h3>
+                        <p class="text-gray-400 text-sm">@almasdepombagira</p>
+                    </div>
+                    <span class="text-pink-400">→</span>
+                </div>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@almasdepombagira/" target="_blank" 
+               class="link-card glow-border block w-full p-4 rounded-xl reveal delay-3">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-white social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="cinzel text-lg font-semibold text-white">TikTok</h3>
+                        <p class="text-gray-400 text-sm">@almasdepombagira</p>
+                    </div>
+                    <span class="text-white">→</span>
+                </div>
+            </a>
+
+            <!-- Kwai -->
+            <a href="https://www.kwai.com/@AlexiaRosadeFogo" target="_blank" 
+               class="link-card glow-border block w-full p-4 rounded-xl reveal delay-4">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-orange-500/30 flex items-center justify-center">
+                        <span class="text-2xl social-icon">🎬</span>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="cinzel text-lg font-semibold text-white">Kwai</h3>
+                        <p class="text-gray-400 text-sm">@AlexiaRosadeFogo</p>
+                    </div>
+                    <span class="text-orange-400">→</span>
+                </div>
+            </a>
+
+            <!-- GitHub - Personal -->
+            <a href="https://github.com/alexialuzdeferro" target="_blank" 
+               class="link-card glow-border block w-full p-4 rounded-xl reveal delay-5">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gray-700/50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-gray-300 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="cinzel text-lg font-semibold text-white">GitHub</h3>
+                        <p class="text-gray-400 text-sm">@alexialuzdeferro</p>
+                    </div>
+                    <span class="text-gray-400">→</span>
+                </div>
+            </a>
+
+            <!-- GitHub - Pombagiras -->
+            <a href="https://github.com/pombagiras" target="_blank" 
+               class="link-card glow-border block w-full p-4 rounded-xl reveal delay-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-purple-900/50 flex items-center justify-center">
+                        <svg class="w-6 h-6 text-purple-400 social-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="cinzel text-lg font-semibold text-white">GitHub Projetos</h3>
+                        <p class="text-gray-400 text-sm">@pombagiras</p>
+                    </div>
+                    <span class="text-purple-400">→</span>
+                </div>
+            </a>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center reveal delay-7">
+            <div class="flex items-center justify-center gap-2 text-red-400 mb-4">
+                <span class="text-2xl">🌹</span>
+                <span class="cinzel text-sm tracking-widest">LAROIÊ POMBAGIRA</span>
+                <span class="text-2xl">🔥</span>
+            </div>
+            <p class="text-gray-600 text-sm">
+                ✧ Axé para todos ✧
+            </p>
+            <div class="mt-4 flex justify-center gap-1">
+                <span class="w-1 h-1 rounded-full bg-red-600"></span>
+                <span class="w-1 h-1 rounded-full bg-gold"></span>
+                <span class="w-1 h-1 rounded-full bg-red-600"></span>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Create floating particles (embers and rose petals)
+        const particlesContainer = document.getElementById('particles-container');
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random type: ember or rose petal
+            if (Math.random() > 0.3) {
+                particle.classList.add('ember');
+            } else {
+                particle.classList.add('rose-petal');
+            }
+            
+            // Random position
+            particle.style.left = Math.random() * 100 + 'vw';
+            
+            // Random animation duration
+            const duration = 5 + Math.random() * 8;
+            particle.style.animationDuration = duration + 's';
+            
+            // Random delay
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            
+            // Random horizontal movement
+            particle.style.setProperty('--drift', (Math.random() - 0.5) * 200 + 'px');
+            
+            particlesContainer.appendChild(particle);
+            
+            // Remove after animation
+            setTimeout(() => {
+                particle.remove();
+            }, (duration + 5) * 1000);
+        }
+        
+        // Create initial particles
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createParticle, i * 200);
+        }
+        
+        // Keep creating particles
+        setInterval(createParticle, 500);
+
+        // Add cursor trail effect
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.9) {
+                const trail = document.createElement('div');
+                trail.classList.add('particle', 'ember');
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+                trail.style.position = 'fixed';
+                trail.style.animationDuration = '1s';
+                trail.style.animationDelay = '0s';
+                particlesContainer.appendChild(trail);
+                
+                setTimeout(() => trail.remove(), 1000);
+            }
+        });
+
+        // Add sound effect on link hover (optional visual feedback)
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Create a small burst of particles
+                for (let i = 0; i < 3; i++) {
+                    const rect = card.getBoundingClientRect();
+                    const burst = document.createElement('div');
+                    burst.classList.add('particle', 'ember');
+                    burst.style.left = rect.left + Math.random() * rect.width + 'px';
+                    burst.style.top = rect.top + 'px';
+                    burst.style.position = 'fixed';
+                    burst.style.animationDuration = '1.5s';
+                    burst.style.animationDelay = '0s';
+                    particlesContainer.appendChild(burst);
+                    
+                    setTimeout(() => burst.remove(), 1500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
