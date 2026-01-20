@@ -165,7 +165,7 @@ O AXÉ se multiplica quando é espalhado.
 
 <div align="center">
 
-### 🩸 L A R O I Ê &nbsp; P O M B A G I R A 🩸
+### 🩸 L A R O Y Ê &nbsp; P O M B A G I R A 🩸
 
 ```
 ══════════════════════════════════════════════════════════════════
@@ -182,6 +182,6 @@ renasci das cinzas. Você não pode me parar."*
 
 ![Views](https://komarev.com/ghpvc/?username=alexialuzdeferro&color=dc143c&style=for-the-badge&label=ALMAS+ALCANÇADAS)
 
-**© 2024 Alexia Rosa de Fogo — Todos os direitos reservados ao AXÉ.**
+**© 2026 Alexia Rosa de Fogo — Todos os direitos reservados ao AXÉ.**
 
 </div>
